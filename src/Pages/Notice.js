@@ -36,8 +36,8 @@ export default function Notice() {
                 <Articulo >
                     <div className="article">
                         <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
-                        <h1>Titulo de la noticia</h1>
-                        <h3>Subtitulo de la noticia</h3>
+                        <h1>Titulo del blog</h1>
+                        <h3>Subtitulo del blog</h3>
                         <input className="etiqueta" type="button" value="Música"/>
                         <input className="etiqueta" type="button" value="último Momento"/>
                         <input className="etiqueta" type="button" value="Lo más sonado"/>
