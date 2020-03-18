@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React from 'react'
 import styled from 'styled-components'
-import OnLive from '../Components/onLive';
 import DescriptionLive from '../Components/DescriptionLive';
-import Chat from '../Components/Chat/Chat';
 import Programacion from './Programación';
 import Concursos from './Concursos';
 import Noticias from './Noticias';
+import {Animated} from "react-animated-css";
 
 
 export default function inicio() {
@@ -14,38 +14,43 @@ export default function inicio() {
             <div className="container">
                 <div className="content">
                     <div className="sesionLive">
-                            
+                        <DescriptionLive/>
                     </div>
                     <div className="description">
-                        <DescriptionLive/>
+                    <Animated animationIn="zoomIn" animationOut="flipOutX" animationInDuration={400} animationOutDuration={400} isVisible={true}>
+
+                        <iframe src="https://drive.google.com/file/d/1IXpb-5Yh9IY0ATez5mIBiVW1zyo6Avxh/preview" width="640" height="380"></iframe>
+                    </Animated>
                     </div>
                 </div>
             </div>
+            <Animated  animationIn="zoomIn" animationOut="flipOutX" animationInDuration={400} animationOutDuration={400} isVisible={true}>
             <Programacion/>
             <Concursos/>
             <Noticias/>
+            </Animated>
         </WrapperHome>
     )
 }
 
 const WrapperHome = styled.div`
-margin:auto;
+margin:0;
     padding:auto;
     width:100%;
     height: 769px;
-    padding-top: 120px;
+    padding-top:140px;
 display:block;
 && .container {
     width: 100%;
-    /* grid-template-columns: minmax(auto, 1024px); */
+    height: 2800;
   display: grid;
   margin: auto;
-  padding:auto;
+  /* padding:auto; */
   /* justify-content: space-between; */
 }
 && .content{
     margin:0;
-    padding: 0;
+    padding: 23px;
     display: flex;
   /* justify-content: space-between; */
 }

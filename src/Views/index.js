@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Nov from '../Images/nov.jpg'
+import Nov from '../Images/baner.jpg'
 import Inicio from './inicio';
 
 
@@ -25,10 +25,10 @@ export default function index() {
 
 const DivHome = styled.div`
 margin:0;
-padding: 0;
+padding: auto;
 font-family: 'Poppins', sans-serif;
 width: 100%;
-height: 769px;
+height: 669px;
 background-image: linear-gradient(to bottom, rgba(52, 58, 64, 0.65), #343a40), url(${Nov});
 background-size: cover;
 `

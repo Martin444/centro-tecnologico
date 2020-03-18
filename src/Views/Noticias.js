@@ -11,7 +11,6 @@ export default function Noticias() {
             <div>
                 <Ads/>
             </div>
-            
             <div className="news">
                 <h4>Blog</h4>
                 <h5>Noticias, tutoriales, guias y más en nuestro blog.</h5>

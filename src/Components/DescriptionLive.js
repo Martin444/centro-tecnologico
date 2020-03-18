@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React from 'react'
 import styled from 'styled-components'
+import {Animated} from "react-animated-css";
 
 export default function DescriptionLive() {
     return (
         <Description>
+            <Animated  animationIn="zoomIn" animationOut="flipOutX" animationInDuration={400} animationOutDuration={400} isVisible={true}>
+               
             <div className="container">
                 <div className="description-header">
-                    <h1>Nombre del curso</h1>
+                    <h1>Curso de bases de datos con excel</h1>
                     <h5>Descripcion de la clase y video introductorio</h5>
                 </div>
 
@@ -16,15 +19,11 @@ export default function DescriptionLive() {
                         <button className="btn-primary">Registrarme</button>
                         <button className="btn-secundary"><i class="fas fa-share"></i>Compartir</button>
                     </div>
-                    <div className="share-btn">
-                            <span>2M</span>
-                            <span>23M</span>
-                    </div>
                 </div>
                 <div>
-                <iframe src="https://drive.google.com/file/d/1IXpb-5Yh9IY0ATez5mIBiVW1zyo6Avxh/preview" width="640" height="280"></iframe>
                 </div>
             </div>
+            </Animated>
         </Description>
     )
 }
@@ -33,7 +32,7 @@ const Description = styled.div`
     width: 100%;
     display: grid;
     top: 400%;
-    margin:auto;
+    margin:0;
     padding:auto;
     /* padding-left:40px; */
     padding-bottom:100px;

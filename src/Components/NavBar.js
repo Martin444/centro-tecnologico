@@ -3,14 +3,19 @@ import styled from 'styled-components'
 import NavButtons from './NavButtons';
 import Logo from '../Images/maxlogo.png'
 
+import {Animated} from "react-animated-css";
+
+
 export default function NavBar() {
     return (
         <HeadNav>
+        <Animated animationIn="pulse" animationOut="fadeOutDownBig" animationInDuration={400} animationOutDuration={400} isVisible={true}>
             <Container>
                 <Content>
+
                     <DivLogo>
                         <img src={Logo} alt="Logo"/>
-                        <i class="fas fa-search"></i>
+                        {/* <i class="fas fa-search"></i> */}
                     </DivLogo>
                     <div className="Nav">
                         <ul>
@@ -26,6 +31,7 @@ export default function NavBar() {
                     </div>
                 </Content>
             </Container>
+    </Animated>
         </HeadNav>
     )
 }
