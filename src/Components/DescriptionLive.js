@@ -2,41 +2,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import {Animated} from "react-animated-css";
-import * as firebase from 'firebase';
-import 'firebase/firestore';
 
-export default function DescriptionLive() {
+export default function DescriptionLive({name, description}) {
 
-    const [baner, setBaner] = React.useState([])
-
-  React.useEffect(() => {
-
-    const fetchData = async () => {
-      const db = firebase.firestore()
-      const data = await db.collection('banercourse').get()
-      setBaner(data.docs.map(doc => doc.data()))
-
-
-      baner.map(van =>{
-        console.log(van.displayName)
-      })
-    }
-    
-    fetchData()
-
-  }, [])
+   
   
 
     return (
         <Description>
-            <Animated  animationIn="zoomIn" animationOut="flipOutX" animationInDuration={400} animationOutDuration={400} isVisible={true}>
-               {baner.map(ban =>{
-                   console.log(ban)
-                   return(
+                <Animated  animationIn="zoomIn" animationOut="flipOutX" animationInDuration={400} animationOutDuration={400} isVisible={true}>
                        <div className="container">
                             <div className="description-header">
-                                <h1>{ban.displayName}</h1>
-                                <h5>{ban.description}</h5>
+                                <h1>{name}</h1>
+                                <h5>{description}</h5>
                             </div>
 
                             <div className="btns">
@@ -48,10 +26,6 @@ export default function DescriptionLive() {
                             <div>
                             </div>
                         </div>
-                   );
-                
-               })    
-               }
             </Animated>
         </Description>
     )
