@@ -1,6 +1,4 @@
 import React from 'react'
-
-import Perfil from '../Images/perf.jpg'
 import { connect } from 'react-redux';
 import { setUser, setLogin } from '../actions/index';
 import { auth } from '../utils/firebase';
@@ -35,8 +33,8 @@ function UserLogin(props) {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu >
-                    <Dropdown.Item >Mis cursos</Dropdown.Item>
-                    <Dropdown.Item >Ayuda</Dropdown.Item>
+                    {/* <Dropdown.Item >Mis cursos</Dropdown.Item> */}
+                    {/* <Dropdown.Item >Ayuda</Dropdown.Item> */}
                     <Dropdown.Item onClick={logoutFacebook}>Cerrar sesión</Dropdown.Item>
                 </Dropdown.Menu>
                 </Dropdown>

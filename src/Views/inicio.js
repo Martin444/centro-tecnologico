@@ -8,7 +8,10 @@ import Noticias from './Noticias';
 import {Animated} from "react-animated-css";
 
 
+
+
 export default function inicio() {
+    
     return (
         <WrapperHome>
             <div className="container">

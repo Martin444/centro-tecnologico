@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { auth } from './utils/firebase'
 import { setUser, setLogin } from './actions/index'
 
+
 function App(props) {
 
   useEffect(() => {
@@ -14,7 +15,9 @@ function App(props) {
         props.setLogin(true);
       }
     });
-  });
+  }, [])
+  
+
 
   return (
     <div className="App">
