@@ -21,9 +21,6 @@ export default function NavBar() {
                         <ul>
                             <li>Cursos</li>
                             <li>Blogs</li>
-                            <li>Concursos</li>
-                            <li>Programación</li>
-                            <li>TV</li>
                         </ul>
                     {/* <div className="btn-container"> */}
                         <NavButtons/>
@@ -80,13 +77,13 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-    display: inline-flex;
+    display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 
   && .Nav{
       margin: auto;
-      margin-left: 230px;
+      margin-left: 630px;
       display: inline-flex;
       padding: 0;
       float:right;

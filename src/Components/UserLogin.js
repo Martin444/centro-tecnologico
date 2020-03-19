@@ -1,21 +1,33 @@
 import React from 'react'
 
 import Perfil from '../Images/perf.jpg'
+import { connect } from 'react-redux';
+import { setUser, setLogin } from '../actions/index';
+import { auth } from '../utils/firebase';
 
 import { ProgressBar, Dropdown } from 'react-bootstrap'
 import styled from 'styled-components'
 
-export default function UserLogin() {
+function UserLogin(props) {
+
+    const logoutFacebook = () => {
+        auth().signOut()
+          .then(() => {
+            props.setUser({});
+            props.setLogin(false);
+          });
+      }
+
     return (
         <Container>
-            <div className="levels">
+            {/* <div className="levels">
                     <h6>Nivel 100</h6>
                     <ProgressBar variant="success" now={60} className="progressBar" />
                     <p>+2.000 Exp</p>
-            </div>
-                <img className="user-perfil" src={Perfil} alt="Perfil del usuario"/>
+            </div> */}
+                <img className="user-perfil" src={props.user.photoURL} alt="Perfil del usuario"/>
             <div className="perfil-data">
-                <h6>Nombre</h6>
+                <h6>{props.user.displayName}</h6>
 
                 <Dropdown>
                 <Dropdown.Toggle id="dropdown-basic" style={{width:'100px', background:'none', color:'#3cd458', padding:'0', margin:'0'}}>
@@ -23,15 +35,28 @@ export default function UserLogin() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu >
-                    <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+                    <Dropdown.Item >Mis cursos</Dropdown.Item>
+                    <Dropdown.Item >Ayuda</Dropdown.Item>
+                    <Dropdown.Item onClick={logoutFacebook}>Cerrar sesión</Dropdown.Item>
                 </Dropdown.Menu>
                 </Dropdown>
             </div>
         </Container>
     )
 }
+
+const mapDispatchToProps = {
+    setUser,
+    setLogin,
+  };
+  
+  const mapStateToProps = state => {
+    return {
+      user: state.user,
+    };
+  };
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(UserLogin);
 
 const Container = styled.div`
     display:flex;
@@ -43,14 +68,15 @@ const Container = styled.div`
     }
 
     .perfil-data{
-        margin: 0;
+        margin: 10;
         display:initial;
     }
 
     .perfil-data h6{
         position:relative;
         top: 10px;
-        right: 13px;
+        right: 2px;
+        font-size: 14px;
     }
 
     .op{
@@ -60,8 +86,8 @@ const Container = styled.div`
 
     .user-perfil{
         border-radius: 100px;
-        width: 48px;
-        height: 48px;
+        width: 60px;
+        height: 20px;
         margin-left: 10px;
     }
 

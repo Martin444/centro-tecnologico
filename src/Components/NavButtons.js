@@ -1,25 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {ButtonToolbar, OverlayTrigger, Popover} from 'react-bootstrap'
 import styled from 'styled-components'
-import Registry from './Registry';
+import { connect } from 'react-redux'
 import Login from './Login';
 import UserLogin from './UserLogin';
 
-export default function NavButtons() {
+function NavButtons(props) {
 
-    // Una validacion simple con Hooks
-    const [user, serUser] = useState(false)
-
-    const setUser = () =>{
-        serUser(!user)
-    }
 
 
     return (
         <DivBtns>
 
             {
-                user ?
+                props.login ?
                 <UserLogin/>
                 :
                <div className="btns-log">
@@ -34,7 +28,7 @@ export default function NavButtons() {
                         <Popover id={`popover-positioned-top`} style={{background:'#343a40', border:'none', boxShadow:'0 0 30px 0 rgba(0, 0, 0, 0.3)'}}>
                         {/* <Popover.Title as="h3" style={{background:'#343a40'}}>{`Popover top`}</Popover.Title> */}
                         <Popover.Content style={{background:'#343a40'}}>
-                            <Login login={setUser}/>
+                            <Login/>
                         </Popover.Content>
                         </Popover>
                     }
@@ -51,6 +45,14 @@ export default function NavButtons() {
         </DivBtns>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        login: state.login,
+    };
+};
+
+export default connect(mapStateToProps)(NavButtons);
 
 const DivBtns = styled.div`
     display: flex;

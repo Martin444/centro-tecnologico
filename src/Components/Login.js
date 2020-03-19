@@ -1,12 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
+import { auth, provider } from '../utils/firebase';
+import { setUser, setLogin } from '../actions/index';
 
-export default function Login(props) {
+function Login(props) {
+
+    const loginFacebook = () => {
+        auth().signInWithPopup(provider)
+          .then(({ user }) => {
+            props.setUser(user);
+            props.setLogin(true);
+        
+          });
+      }
+
     return (
         <DivLogin>
-          
-            <button onClick={props.login} className="btn-primary"><i class="fab fa-google" style={{fontSize:'14px', marginRight:'5px', marginTop:'4px'}}></i>iniciar con google</button>
-            <button className="btn-social"><i class="fab fa-facebook-f" style={{fontSize:'14px', marginRight:'5px', marginTop:'4px'}}></i>iniciar con facebook</button>
+            {/* <button className="btn-primary"><i class="fab fa-google" style={{fontSize:'14px', marginRight:'5px', marginTop:'4px'}}></i>iniciar con google</button> */}
+            <button onClick={loginFacebook} className="btn-social"><i class="fab fa-facebook-f" style={{fontSize:'14px', marginRight:'5px', marginTop:'4px'}}></i>iniciar con facebook</button>
         </DivLogin>
     )
 }
@@ -54,3 +66,10 @@ const DivLogin = styled.div`
         cursor: pointer;
     }
 `
+
+const mapDispatchToProps = {
+    setUser,
+    setLogin,
+  }
+  
+  export default connect(null, mapDispatchToProps)(Login);

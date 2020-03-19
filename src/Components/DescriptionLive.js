@@ -17,7 +17,7 @@ export default function DescriptionLive() {
                 <div className="btns">
                     <div className="follow-btns">
                         <button className="btn-primary">Registrarme</button>
-                        <button className="btn-secundary"><i class="fas fa-share"></i>Compartir</button>
+                        <button className="btn-secundary"><i className="fas fa-share"></i>Compartir</button>
                     </div>
                 </div>
                 <div>
